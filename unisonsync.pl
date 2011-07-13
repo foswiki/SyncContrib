@@ -54,7 +54,7 @@ sub reportLastOutputs {
    my ($account) = @_;
    local( *FH ) ;
 
-   for my $runOutputType qw(unisonCaptureLog unisonStdErrFile) {
+   for my $runOutputType (qw(unisonCaptureLog unisonStdErrFile)) {
       my $file = $account->{$runOutputType};  
       open( FH, $file) or next; # Error appending contents of $account->{$runOutputFile} 
       my $text = do { local( $/ ) ; <FH> };
